@@ -16,7 +16,7 @@ defmodule ColourHash do
       {24, 108, 224}
       iex> ColourHash.hsl("test")
       {274, 0.65, 0.65}
-      iex> ColourHash.hex("test", %{lightness: [0.1], saturation: 0.1, hue_range: %{min:30,max:40} })
+      iex> ColourHash.hex("test", %{lightness: [0.1], saturation: [0.1], hue_range: %{min: 30, max: 30} } )
       "18171C"
 
 
