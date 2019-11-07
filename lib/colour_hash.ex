@@ -2,6 +2,7 @@ defmodule ColourHash do
   @moduledoc """
   Documentation for ColourHash.
   """
+  
   @default_lightnes [0.35, 0.5, 0.65]
   @default_saturation [0.35, 0.5, 0.65]
   @default_hue_range %{min: 0, max: 360}
@@ -43,13 +44,14 @@ defmodule ColourHash do
     |> hsl_to_rgb    
     {r,g,b}
   end
-@doc """
+
+  @doc """
   String hashed to colour hsl tuple string
   iex> ColourHash.hsl("test")
   {274, 0.65, 0.65}
   iex> ColourHash.hsl("test", %{lightness: [0.1], saturation: [0.3, 0.9], hue_range: %{min: 50, max: 330} } )
   {274, 0.3, 0.1}
-"""
+  """
   def hsl(string, options \\ %{lightness: @default_lightnes, saturation: @default_saturation, hue_range: @default_hue_range } ) do
     string
     |> hash_to_integer
