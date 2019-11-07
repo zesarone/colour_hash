@@ -5,6 +5,7 @@ defmodule ColourHash do
   @default_lightnes [0.35, 0.5, 0.65]
   @default_saturation [0.35, 0.5, 0.65]
   @default_hue_range %{min: 0, max: 360}
+  
   @doc """
   String hashed to colour hex string
 
@@ -12,11 +13,7 @@ defmodule ColourHash do
       
       iex> ColourHash.hex("test")
       "186CE0"
-      iex> ColourHash.rgb("test")
-      {24, 108, 224}
-      iex> ColourHash.hsl("test")
-      {274, 0.65, 0.65}
-      iex> ColourHash.hex("test", %{lightness: [0.1], saturation: [0.1], hue_range: %{min: 30, max: 30} } )
+      iex> ColourHash.hex("test", %{lightness: [0.1], saturation: [0.1, 0.9], hue_range: %{min: 30, max: 30} } )
       "18171C"
 
 
@@ -30,6 +27,15 @@ defmodule ColourHash do
     |> Enum.join()
     |> String.pad_leading(6,"0")
   end
+
+  @doc """
+      String hashed to colour rgb tuple string
+      iex> ColourHash.rgb("test")
+      {24, 108, 224}
+      iex> ColourHash.rgb("test", %{lightness: [0.1], saturation: [0.3, 0.9], hue_range: %{min: 50, max: 330} } )
+      {24, 18, 33}
+      
+  """
   def rgb(string, options \\ %{lightness: @default_lightnes, saturation: @default_saturation, hue_range: @default_hue_range } ) do
     [r,g,b] = string
     |> hash_to_integer
@@ -37,6 +43,13 @@ defmodule ColourHash do
     |> hsl_to_rgb    
     {r,g,b}
   end
+@doc """
+  String hashed to colour hsl tuple string
+  iex> ColourHash.hsl("test")
+  {274, 0.65, 0.65}
+  iex> ColourHash.hsl("test", %{lightness: [0.1], saturation: [0.3, 0.9], hue_range: %{min: 50, max: 330} } )
+  {274, 0.3, 0.1}
+"""
   def hsl(string, options \\ %{lightness: @default_lightnes, saturation: @default_saturation, hue_range: @default_hue_range } ) do
     string
     |> hash_to_integer
