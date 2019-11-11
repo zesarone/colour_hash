@@ -4,11 +4,12 @@ defmodule ColourHash.MixProject do
   def project do
     [
       app: :colour_hash,
-      version: "0.1.0",
+      version: "1.0.1",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      description: "A package to hash a string into a colour to be used as a personified colour or simular.",
+      description:
+        "A package to hash a string into a colour to be used as a personified colour or simular.",
       package: package()
     ]
   end
