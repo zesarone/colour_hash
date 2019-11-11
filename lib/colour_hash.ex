@@ -13,7 +13,7 @@ defmodule ColourHash do
   ## Examples
       
       iex> ColourHash.hex("test")
-      "9EBF40"
+      "A46CE0"
       iex> ColourHash.hex("test", lightness: [0.1], saturation: [0.1, 0.9], hue_range: %{min: 30, max: 30} )
       "1C1A17"
 
@@ -32,9 +32,9 @@ defmodule ColourHash do
   @doc """
       String hashed to colour rgb tuple string
       iex> ColourHash.rgb("test")
-      {158, 191, 64}
+      {164, 108, 224}
       iex> ColourHash.rgb("test", lightness: [0.1], saturation: [0.3, 0.9], hue_range: %{min: 50, max: 330} )
-      {21, 33, 18}
+      {23, 18, 33}
       
   """
   def rgb(string, options \\ []) do
@@ -48,11 +48,11 @@ defmodule ColourHash do
   end
 
   @doc """
-  String hashed to colour hsl tuple string
-  iex> ColourHash.hsl("test")
-  {75.76341127922971, 0.5, 0.5}
-  iex> ColourHash.hsl("test", lightness: [0.1], saturation: [0.3, 0.9], hue_range: %{min: 150, max: 330} )
-  {187.88170563961486, 0.3, 0.1}
+      String hashed to colour hsl tuple string
+      iex> ColourHash.hsl("test")
+      {268.88583218707015, 0.65, 0.65}
+      iex> ColourHash.hsl("test", lightness: [0.1], saturation: [0.3, 0.9], hue_range: %{min: 150, max: 330} )
+      {284.4429160935351, 0.3, 0.1}
   """
   def hsl(string, options \\ []) do
     string
