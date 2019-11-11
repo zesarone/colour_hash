@@ -65,12 +65,8 @@ defmodule ColourHash do
   @seed2 137
 
   defp hash_to_integer(str) do
-    (str <> "x")
-    |> String.to_charlist()
-    |> Enum.reduce(0, fn
-      a, hash when hash < @max_safe_integer -> hash * @seed + a
-      a, hash -> floor(hash / @seed2) * @seed + a
-    end)
+    <<hash::224>> = :crypto.hash(:sha224, str)
+    hash
   end
 
   defp hsl_calc(value, options) do
