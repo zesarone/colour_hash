@@ -4,7 +4,7 @@ defmodule ColourHash.MixProject do
   def project do
     [
       app: :colour_hash,
-      version: "1.0.2",
+      version: "1.0.3",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps(),

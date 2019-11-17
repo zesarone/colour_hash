@@ -28,7 +28,7 @@ by adding `colour_hash` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:colour_hash, "~> 1.0.2"}
+    {:colour_hash, "~> 1.0.3"}
   ]
 end
 ```
